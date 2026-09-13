@@ -18,7 +18,7 @@ export async function verifyPassword(password: string, hash: string | null | und
 }
 
 export function validatePasswordStrength(password: string): string | null {
-  if (password.length < 10) return "La password deve avere almeno 10 caratteri.";
+  if (password.length < 8) return "La password deve avere almeno 8 caratteri.";
   if (!/[A-Za-z]/.test(password) || !/\d/.test(password)) return "La password deve contenere lettere e numeri.";
   return null;
 }
