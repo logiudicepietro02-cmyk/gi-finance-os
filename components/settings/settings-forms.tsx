@@ -190,7 +190,7 @@ export function UsersManager({ users, canManage, currentUserId }: { users: UserR
               ))}
             </SelectContent>
           </Select>
-          <Input name="password" type="password" placeholder="Password iniziale (min. 10)" minLength={10} required />
+          <Input name="password" type="password" placeholder="Password iniziale (min. 8)" minLength={8} required />
           <Button type="submit" size="default" disabled={pending}>
             {pending ? <Loader2 className="animate-spin" /> : <UserPlus />} Aggiungi
           </Button>
