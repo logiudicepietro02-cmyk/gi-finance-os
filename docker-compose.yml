@@ -1,0 +1,18 @@
+# Optional: PostgreSQL via Docker, alternative to `npm run db:start`.
+# Matches the default DATABASE_URL / TEST_DATABASE_URL / E2E_DATABASE_URL in .env.example.
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gi_finance_os
+    ports:
+      - "54329:5432"
+    volumes:
+      - gi_finance_os_pg:/var/lib/postgresql/data
+      - ./docker/initdb:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  gi_finance_os_pg:

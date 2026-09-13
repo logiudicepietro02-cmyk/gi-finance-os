@@ -1,0 +1,162 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Never scan build output, test artifacts or uploaded files for class names */
+@source not "../.next-e2e";
+@source not "../playwright-report";
+@source not "../test-results";
+@source not "../storage";
+@source not "../docs";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* GI FINANCE OS — palette "Periwinkle" estratta dal leaflet aziendale reale
+   (copertina G.I. Finance): un solo accento lilla/periwinkle, chiaro e opaco,
+   su canvas quasi bianco. Nessun gradiente: colori piatti, pastello, poche
+   tinte forti usate con parsimonia. Riferimento: figma.com/design/tGFuULkmld2eajd7IdSEZe */
+:root {
+    --background: #F7F7FC;
+    --foreground: #2B2B30;
+    --card: #FFFFFF;
+    --card-foreground: #2B2B30;
+    --popover: #FFFFFF;
+    --popover-foreground: #2B2B30;
+    --primary: #8589C9;
+    --primary-foreground: #FFFFFF;
+    --secondary: #EEEFFA;
+    --secondary-foreground: #565991;
+    --muted: #F1F2FA;
+    --muted-foreground: #6B6B72;
+    --accent: #EEEFFA;
+    --accent-foreground: #565991;
+    --destructive: oklch(0.577 0.2 27);
+    --success: oklch(0.58 0.11 160);
+    --warning: oklch(0.72 0.14 70);
+    --border: #DBDDF2;
+    --input: #DBDDF2;
+    --ring: #8589C9;
+    --chart-1: #8589C9;
+    --chart-2: #DBDDF2;
+    --chart-3: #565991;
+    --chart-4: #9EA1D9;
+    --chart-5: #6B6B72;
+    --radius: 0.85rem;
+    --shadow-soft: 0 16px 32px -12px rgb(133 137 201 / 32%), 0 4px 10px -4px rgb(133 137 201 / 18%);
+    --shadow-soft-sm: 0 8px 20px -8px rgb(133 137 201 / 24%), 0 2px 6px -2px rgb(133 137 201 / 14%);
+    --sidebar: #565991;
+    --sidebar-foreground: #EEEFFA;
+    --sidebar-primary: #BFC3E8;
+    --sidebar-primary-foreground: #2B2B30;
+    --sidebar-accent: #6C70B3;
+    --sidebar-accent-foreground: #F7F7FC;
+    --sidebar-border: rgb(255 255 255 / 10%);
+    --sidebar-ring: #BFC3E8;
+}
+
+.dark {
+    --background: #1E1E24;
+    --foreground: #EDEDF5;
+    --card: #26262E;
+    --card-foreground: #EDEDF5;
+    --popover: #26262E;
+    --popover-foreground: #EDEDF5;
+    --primary: #9EA1D9;
+    --primary-foreground: #1E1E24;
+    --secondary: #33333D;
+    --secondary-foreground: #EDEDF5;
+    --muted: #33333D;
+    --muted-foreground: #A7A7B3;
+    --accent: #383842;
+    --accent-foreground: #EDEDF5;
+    --destructive: oklch(0.704 0.191 22.216);
+    --success: oklch(0.7 0.12 160);
+    --warning: oklch(0.8 0.14 75);
+    --border: rgb(255 255 255 / 10%);
+    --input: rgb(255 255 255 / 15%);
+    --ring: #9EA1D9;
+    --chart-1: #9EA1D9;
+    --chart-2: #4A4D80;
+    --chart-3: #C7C9EA;
+    --chart-4: #6C70B3;
+    --chart-5: #8A8A96;
+    --shadow-soft: 0 16px 32px -12px rgb(0 0 0 / 55%), 0 4px 10px -4px rgb(0 0 0 / 35%);
+    --shadow-soft-sm: 0 8px 20px -8px rgb(0 0 0 / 45%), 0 2px 6px -2px rgb(0 0 0 / 30%);
+    --sidebar: #17171C;
+    --sidebar-foreground: #C9CAE6;
+    --sidebar-primary: #9EA1D9;
+    --sidebar-primary-foreground: #17171C;
+    --sidebar-accent: #2A2A35;
+    --sidebar-accent-foreground: #EDEDF5;
+    --sidebar-border: rgb(255 255 255 / 8%);
+    --sidebar-ring: #9EA1D9;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+}
